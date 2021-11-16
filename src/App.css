@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+body {
+    background-color:#141414;
+    color: whitesmoke;
+}
+
+.app {
+    font-family: 'Raleway', serif;
+}
+
+.header-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    width: 800px;
+    height: 30px;
+    font-family: 'Raleway', serif;
+    color: whitesmoke;
+    background-color: rgb(75, 78, 90);
+}
+
+.button {
+    width: 80px;
+    height: 30px;
+    background-color: darkred;
+}
+
+.search-icon {
+    vertical-align: -15%;
+    color: whitesmoke;
+}
+
+.explore {
+    padding-top: 3%;
+    justify-content: center;
+    align-items: center;
+}
+
+.explore-header {
+    position: absolute;
+    left: 12%;
+}
+
+.explore-content {
+    padding-top: 7%;
+    display: grid;
+    grid-gap: 40px 10px;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
+    max-width: 1500px;
+    max-height: fit-content;
+}
+
+.movie-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-img {
+    height: 250px;
+    width: auto;
+}
