@@ -7,23 +7,23 @@ const header = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/";
 
 const movie_info = {
     id: uuidv4,
-    title: 'Scary Movie',
+    title: "Scary Movie",
     url: "fHWR3YplPQWciYzxEity2kyDoDn.jpg", 
-    plot: "¿No te gusta comprar entradas online? ",
-    director: "Tomás Turbado",
-    releaseDate: "01/01/3000",
+    plot: "A familiar-looking group of teenagers find themselves being stalked by a more-than-vaguely recognizable masked killer! As the victims begin to pile up and the laughs pile on, none of your favorite scary movies escape the razor-sharp satire of this outrageously funny parody!",
+    director: "Keenen Ivory Wayans",
+    releaseDate: "31/20/2000",
     genre: "Comedy",
     relatedMovies: [
-        { id: uuidv4(), title: 'Scary Movie', url: "fHWR3YplPQWciYzxEity2kyDoDn.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 2', url: "r4qTydYjntbb5TfZKV229NpSaCt.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 3', url: "7tMsPb5yEwmb4eHbXRAD6mURE5B.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 4', url: "iSybaw6TeJKKmHIh8UonOEsv4Bh.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 5', url: "mjsX6YYZEepnuJ6F04MAGGOSdbJ.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 6', url: "fHWR3YplPQWciYzxEity2kyDoDn.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 7', url: "r4qTydYjntbb5TfZKV229NpSaCt.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 8', url: "7tMsPb5yEwmb4eHbXRAD6mURE5B.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 9', url: "iSybaw6TeJKKmHIh8UonOEsv4Bh.jpg"},
-        { id: uuidv4(), title: 'Scary Movie 10', url: "mjsX6YYZEepnuJ6F04MAGGOSdbJ.jpg"}
+        { id: uuidv4(), title: "Scary Movie", url: "fHWR3YplPQWciYzxEity2kyDoDn.jpg"},
+        { id: uuidv4(), title: "Scary Movie 2", url: "r4qTydYjntbb5TfZKV229NpSaCt.jpg"},
+        { id: uuidv4(), title: "Scary Movie 3", url: "7tMsPb5yEwmb4eHbXRAD6mURE5B.jpg"},
+        { id: uuidv4(), title: "Scary Movie 4", url: "iSybaw6TeJKKmHIh8UonOEsv4Bh.jpg"},
+        { id: uuidv4(), title: "Scary Movie 5", url: "mjsX6YYZEepnuJ6F04MAGGOSdbJ.jpg"},
+        { id: uuidv4(), title: "Scary Movie 6", url: "fHWR3YplPQWciYzxEity2kyDoDn.jpg"},
+        { id: uuidv4(), title: "Scary Movie 7", url: "r4qTydYjntbb5TfZKV229NpSaCt.jpg"},
+        { id: uuidv4(), title: "Scary Movie 8", url: "7tMsPb5yEwmb4eHbXRAD6mURE5B.jpg"},
+        { id: uuidv4(), title: "Scary Movie 9", url: "iSybaw6TeJKKmHIh8UonOEsv4Bh.jpg"},
+        { id: uuidv4(), title: "Scary Movie 10", url: "mjsX6YYZEepnuJ6F04MAGGOSdbJ.jpg"}
     ]
 };
 

@@ -37,15 +37,13 @@ body {
 .movie-info {
     padding-top: 3%;
     display: flex;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .movie-info-img {
     margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    display:inline;
+    margin-right: 80px;
     height: 350px;
     width: auto;
 }
