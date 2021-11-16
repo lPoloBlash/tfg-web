@@ -9,7 +9,7 @@ const movie_info = {
     id: uuidv4,
     title: 'Scary Movie',
     url: "fHWR3YplPQWciYzxEity2kyDoDn.jpg", 
-    plot: "¿No te gusta comprar entradas online? ¡Ningún problema! Las entradas de día y los abonos para Gamergy también están disponibles en los centros de El Corte",
+    plot: "¿No te gusta comprar entradas online? ",
     director: "Tomás Turbado",
     releaseDate: "01/01/3000",
     genre: "Comedy",
