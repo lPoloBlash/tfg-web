@@ -1,0 +1,24 @@
+.header-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    width: 800px;
+    height: 30px;
+    font-family: 'Raleway', serif;
+    color: whitesmoke;
+    background-color: rgb(75, 78, 90);
+}
+
+.button {
+    width: 80px;
+    height: 30px;
+    background-color: darkred;
+}
+
+.search-icon {
+    vertical-align: -15%;
+    color: whitesmoke;
+}
