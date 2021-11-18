@@ -6,16 +6,27 @@ import SearchBar from '../components/SearchBar';
 import MovieInfo from '../components/MovieInfo';
 import MovieList from '../components/MovieList';
 
-function GetMovie(movieId) {
-    return movies.find((movie) => {
-        return movie.id === movieId;
-    });
-}
-
 export default function Movie() {
+    function getMovie(movieId) {
+        return movies.find((movie) => {
+            return movie.id === movieId;
+        });
+    }
+
+    function getRelatedMovies(relatedIdMovies) {
+        let relatedMovies = (relatedIdMovies.map((movieId) => {
+            return getMovie(movieId);
+        }));
+
+        return relatedMovies;
+    }
+
     let params = useParams();
-    let movie_info = GetMovie(params.id);
+    let movie_info = getMovie(params.id);
+    let related_movies = getRelatedMovies(movie_info.relatedMovies);
     
+    console.log(related_movies);
+
     return (
         <div className="movie">
             <div className="top-bar">
@@ -23,7 +34,7 @@ export default function Movie() {
                 <SearchBar/>
             </div>
             <MovieInfo info={movie_info}/>
-            <MovieList listName="Related"/>
+            <MovieList listName="Related" movieList={related_movies}/>
         </div>
     )
 }
