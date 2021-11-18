@@ -12,16 +12,12 @@ export default function MovieList(props) {
             <div className="movie-list-content">
                 {movies.map((movie, index) => (
                     <div key={index} className="movie-list-box">
-                        <div>
-                            <Link to={`/movie/${movie.id}`} style={{textDecoration: 'none', color: 'white'}}>
-                                <img className="movie-list-box-img" src={header + movie.url} alt={movie.title}/>
-                            </Link>
+                        <Link className="movie-list-box-link" to={`/movie/${movie.id}`}>
+                            <img className="movie-list-box-img" src={header + movie.url} alt={movie.title}/>
                             <div className="movie-list-box-title">
-                                <Link to={`/movie/${movie.id}`} style={{textDecoration: 'none', color: 'white'}}>
-                                    <b>{movie.title}</b>
-                                </Link>
+                                <b>{movie.title}</b>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 ))}
             </div>

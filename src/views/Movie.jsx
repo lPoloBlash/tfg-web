@@ -1,6 +1,7 @@
 import './Movie.css';
 import { useParams } from "react-router-dom";
 import movies from '../data/moviesdata';
+import HomeButton from '../components/HomeButton';
 import SearchBar from '../components/SearchBar';
 import MovieInfo from '../components/MovieInfo';
 import MovieList from '../components/MovieList';
@@ -17,7 +18,10 @@ export default function Movie() {
     
     return (
         <div className="movie">
-            <SearchBar/>
+            <div className="top-bar">
+                <HomeButton/>
+                <SearchBar/>
+            </div>
             <MovieInfo info={movie_info}/>
             <MovieList listName="Related"/>
         </div>

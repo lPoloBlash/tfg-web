@@ -1,10 +1,10 @@
-.header-search {
+.search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.bar {
+.search-bar-input {
     width: 800px;
     height: 30px;
     font-family: 'Raleway', serif;
@@ -12,13 +12,13 @@
     background-color: rgb(75, 78, 90);
 }
 
-.button {
+.search-bar-button {
     width: 80px;
     height: 30px;
     background-color: darkred;
 }
 
-.search-icon {
+.search-bar-icon {
     vertical-align: -15%;
     color: whitesmoke;
 }

@@ -24,6 +24,16 @@
     align-items: center;
 }
 
+.movie-list-box-link {
+    text-decoration: none;
+    color: white;
+}
+
+.movie-list-box-link:hover {
+    text-decoration: none;
+    color: grey;
+}
+
 .movie-list-box-title {
     display: flex;
     justify-content: center;
