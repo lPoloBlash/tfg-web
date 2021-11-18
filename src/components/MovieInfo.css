@@ -1,0 +1,13 @@
+.movie-info {
+    padding-top: 3%;
+    display: flex;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.movie-info-img {
+    margin-top: 20px;
+    margin-right: 80px;
+    height: 350px;
+    width: auto;
+}
