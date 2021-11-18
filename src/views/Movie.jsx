@@ -18,8 +18,10 @@ export default function Movie() {
     
     return (
         <div className="movie">
-            <HomeButton/>
-            <SearchBar/>
+            <div className="top-bar">
+                <HomeButton/>
+                <SearchBar/>
+            </div>
             <MovieInfo info={movie_info}/>
             <MovieList listName="Related"/>
         </div>

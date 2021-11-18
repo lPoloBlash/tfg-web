@@ -32,7 +32,6 @@
 .movie-list-box-link:hover {
     text-decoration: none;
     color: grey;
-    cursor: pointer;
 }
 
 .movie-list-box-title {

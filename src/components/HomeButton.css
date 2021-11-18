@@ -1,0 +1,16 @@
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-button-button {
+    width: 80px;
+    height: 30px;
+    background-color: darkred;
+}
+
+.home-button-icon {
+    vertical-align: -10%;
+    color: whitesmoke;
+}
