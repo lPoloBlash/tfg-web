@@ -8,6 +8,7 @@
 .movie-info-img {
     margin-top: 20px;
     margin-right: 80px;
-    height: 350px;
+    height: 400px;
     width: auto;
+    border-radius: 15px;
 }

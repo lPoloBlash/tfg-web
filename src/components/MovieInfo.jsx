@@ -1,5 +1,5 @@
 import './MovieInfo.css';
-import header from '../data/urlheader';
+import header from '../data/urlHeader';
 
 export default function MovieInfo(props) {
     return (
