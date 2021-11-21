@@ -24,8 +24,6 @@ export default function Movie() {
     let params = useParams();
     let movie_info = getMovie(params.id);
     let related_movies = getRelatedMovies(movie_info.relatedMovies);
-    
-    console.log(related_movies);
 
     return (
         <div className="movie">
