@@ -23,7 +23,7 @@ export default function Movie() {
                 <SearchBar/>
             </div>
             <MovieInfo id={movie_info.id}/>
-            <MovieList listName="Related" movieList={movie_info.relatedMovies}/>
+            <MovieList listName="Related" movieIdList={movie_info.relatedMovies}/>
         </div>
     )
 }

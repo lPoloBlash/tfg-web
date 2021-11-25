@@ -8,8 +8,8 @@ export default function MovieList(props) {
                 <h1>{props.listName}</h1>
             </div>
             <div className="movie-list-content">
-                {props.movieList.map((movie) => (
-                    <MovieBox key={movie} id={movie}/>
+                {props.movieIdList.map((movieId) => (
+                    <MovieBox key={movieId} id={movieId}/>
                 ))}
             </div>
         </div>
