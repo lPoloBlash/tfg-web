@@ -17,32 +17,3 @@
     max-width: 1500px;
     max-height: fit-content;
 }
-
-.movie-list-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.movie-list-box-link {
-    text-decoration: none;
-    color: white;
-}
-
-.movie-list-box-link:hover {
-    text-decoration: none;
-    color: grey;
-}
-
-.movie-list-box-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 250px;
-}
-
-.movie-list-box-img {
-    height: 300px;
-    width: auto;
-    border-radius: 15px;
-}

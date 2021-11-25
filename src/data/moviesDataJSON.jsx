@@ -1,4 +1,4 @@
-import movies_data_csv from '../data/moviesData.csv';
+import movies_data_csv from '../data/data.csv';
 
 var archivoTxt = new XMLHttpRequest();
 archivoTxt.open("GET", movies_data_csv, false);
@@ -10,7 +10,7 @@ function csvJSON(csv) {
     var lines = csv.split("\n");
     var result = [];
 
-    for (var i = 1; i < lines.length - 1; ++i){
+    for (var i = 1; i < 11; ++i){
         var obj = [];
         var currentline = lines[i].split(",\"");
         obj.id = currentline[0];
