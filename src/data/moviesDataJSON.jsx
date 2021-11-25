@@ -10,7 +10,7 @@ function csvJSON(csv) {
     var lines = csv.split("\n");
     var result = [];
 
-    for (var i = 1; i < lines.length - 1; ++i){
+    for (var i = 1; i < lines.length - 1; ++i) {
         var obj = [];
         var currentline = lines[i].split(",\"");
         obj.id = currentline[0];
@@ -28,7 +28,7 @@ function csvJSON(csv) {
 
         result.push(obj);
     }
- 
+
     return result;
 }
 
