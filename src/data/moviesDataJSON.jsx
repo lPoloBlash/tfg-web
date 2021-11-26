@@ -32,6 +32,5 @@ function csvJSON(csv) {
     return result;
 }
 
-const movies_data = csvJSON(csvTxt);
-
-export default movies_data;
+export const movies_data = csvJSON(csvTxt);
+export const numMovies = csvTxt.split("\n").length - 2;

@@ -8,19 +8,33 @@ export default function MovieInfo(props) {
     const [genres, setGenres] = useState("");
 
     useEffect(() => {
+        let isMounted = true;
+
         try {
             fetch(`https://api.themoviedb.org/3/movie/${props.id}?api_key=7d00d849e6faf0e552458a8ec8230945`)
             .then((response) => response.json())
             .then((data) => {
-                setMovie(data);
-                let genres = '';
-                genres += data.genres.map((genre) => ' ' + genre.name);
-                setGenres(genres);
+                if (isMounted) {
+                    setMovie(data);
+
+                    let genres = '';
+                    
+                    if (data.genres.length !== 0)
+                        genres += data.genres.map((genre) => ' ' + genre.name);
+                    else
+                        genres = <p>N/A</p>;
+                    
+                    setGenres(genres);
+                }
             });
         }
         catch(error) {
             console.log(error);
         }
+
+        return () => {
+            isMounted = false
+        };
     }, [props.id]);
 
     return (
@@ -32,7 +46,10 @@ export default function MovieInfo(props) {
                 <div className="movie-info-content">
                     <div className="movie-info-releaseDate">
                         <h2>Release Date</h2>
-                        <div>{movie.release_date}</div>
+                        <div>
+                            {movie.release_date !== "" ? (movie.release_date)
+                                                       : (<p>N/A</p>)}
+                        </div>
                     </div>
                     <div className="movie-info-genre">
                         <h2>Genre</h2>
@@ -40,11 +57,19 @@ export default function MovieInfo(props) {
                     </div>
                     <div className="movie-info-runtime">
                         <h2>Runtime</h2>
-                        <div>{Math.trunc(movie.runtime / 60) + "h " + movie.runtime % 60 + "m"}</div>
+                        <div>
+                            {movie.runtime !== 0 ? (movie.runtime % 60 === 0 ? (Math.trunc(movie.runtime / 60) + "h")
+                                                                             : (Math.trunc(movie.runtime / 60) === 0 ? (movie.runtime % 60 + "m")
+                                                                                                                     : (Math.trunc(movie.runtime / 60) + "h " + movie.runtime % 60 + "m")))
+                                                 : (<p>N/A</p>)}
+                        </div>
                     </div>
                     <div className="movie-info-overview">
                         <h2>Overview</h2>
-                        <div>{movie.overview}</div>
+                        <div>
+                            {movie.overview !== "" ? (movie.overview)
+                                                   : (<p>N/A</p>)}
+                        </div>
                     </div>
                 </div>
             </div>

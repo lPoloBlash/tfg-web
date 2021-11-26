@@ -8,15 +8,23 @@ export default function MovieBox(props) {
     const [movie, setMovie] = useState({});
 
     useEffect(() => {
+        let isMounted = true;
+
         try {
             fetch(`https://api.themoviedb.org/3/movie/${props.id}?api_key=7d00d849e6faf0e552458a8ec8230945`)
             .then((response) => response.json())
             .then((data) => {
-                setMovie(data);
+                if (isMounted)
+                    setMovie(data);
             });
-        } catch(error) {
+        }
+        catch(error) {
             console.log(error);
         }
+
+        return () => {
+            isMounted = false
+        };
     }, [props.id]);
 
     return (
