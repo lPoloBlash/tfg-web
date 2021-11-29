@@ -1,9 +1,10 @@
-import HomeButton from '../components/HomeButton';
+import TopBar from '../components/TopBar';
 
 export default function NotFound() {
     return (
         <div>
-            {/*ToDo*/}
+            <TopBar/>
+            404 Page Not found
         </div>
     )
 }

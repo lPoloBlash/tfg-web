@@ -1,13 +1,16 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { movies_data, numMovies } from './data/moviesDataJSON';
-import SearchBar from './components/SearchBar';
+import TopBar from './components/TopBar';
 import MovieList from './components/MovieList';
+import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 export default function App() {  
     const [validPage, setValidPage] = useState(true);
+    const [disablePrev, setDisablePrev] = useState(false);
+    const [disableNext, setDisableNext] = useState(false);
     const movXPag = 50;
     const params = useParams();
     const navigate = useNavigate();
@@ -24,16 +27,26 @@ export default function App() {
     }
 
     const maxPag = getMaxPag(numMovies);
-
+    
     useEffect(() => {
-        if ((params.p !== undefined && !Number.isInteger(parseInt(params.p))) || (parseInt(params.p) <= 1 || parseInt(params.p) > maxPag))
+        if ((params.p !== undefined && !Number.isInteger(parseInt(params.p))) || (parseInt(params.p) <= 0 || parseInt(params.p) > maxPag))
             setValidPage(false);
+
+        if (params.p === undefined || parseInt(params.p) === 1)
+            setDisablePrev(true);
+        else
+            setDisablePrev(false);
+
+        if (parseInt(params.p) === maxPag)
+            setDisableNext(true);
+        else
+            setDisableNext(false);
     }, [params.p, maxPag]);
 
-    if (!validPage && parseInt(params.p) === 1)
-        return <Navigate to="/"/>;
-    else if (!validPage && ((params.p !== undefined && !Number.isInteger(parseInt(params.p))) || (parseInt(params.p) < 1 || parseInt(params.p) >= maxPag)))
-        return <Navigate to="notfound"/>;
+    if (!validPage && ((params.p !== undefined && !Number.isInteger(parseInt(params.p))) || (parseInt(params.p) <= 0 || parseInt(params.p) > maxPag)))
+        navigate("notfound");
+    else if (disablePrev && parseInt(params.p) === 1)
+        navigate("/");
 
     let movie_id_list = movies_data.map((movie) => {
         return movie.id;
@@ -42,8 +55,9 @@ export default function App() {
     function handleClickPrevious() {
         if (parseInt(params.p) === 2)
             navigate("/");
-        else
+        else {
             navigate(`/page/${parseInt(params.p) - 1}`);
+        }
     }
 
     function handleClickNext() {
@@ -55,25 +69,31 @@ export default function App() {
 
     return (
         <div className="app">
-            <SearchBar/>
-            {params.p !== undefined ? (<MovieList listName="Explore" movieIdList={movie_id_list.slice((params.p - 1) * movXPag, params.p * movXPag)}/>)
-                                    : (<MovieList listName="Explore" movieIdList={movie_id_list.slice(0, movXPag)}/>)}
-            {params.p !== undefined && <button 
-                className="previous-button"
-                style={{fontSize: "20px"}}
-                type="button"
-                onClick={() => handleClickPrevious()}
-            >
-                Previous
-            </button>}
-            {(params.p === undefined || parseInt(params.p) < maxPag) && <button 
-                className="next-button"
-                style={{fontSize: "20px"}}
-                type="button"
-                onClick={() => handleClickNext()}
-            >
-                Next
-            </button>}
+            <TopBar/>
+            {disablePrev ? (<MovieList listName="Explore" movieIdList={movie_id_list.slice(0, movXPag)}/>)
+                         : (<MovieList listName="Explore" movieIdList={movie_id_list.slice((params.p - 1) * movXPag, params.p * movXPag)}/>)}
+            <div className="page-buttons">
+                <button 
+                    className="page-previous-button"
+                    style={{fontSize: "20px"}}
+                    type="button"
+                    disabled={disablePrev}
+                    onClick={() => handleClickPrevious()}
+                >
+                    <RiArrowLeftLine className="page-previous-button-icon"/>
+                </button>
+                {disablePrev ? (<div>1</div>)
+                             : (<div>{params.p}</div>)}
+                <button 
+                    className="page-next-button"
+                    style={{fontSize: "20px"}}
+                    type="button"
+                    disabled={disableNext}
+                    onClick={() => handleClickNext()}
+                >
+                    <RiArrowRightLine className="page-next-button-icon"/>
+                </button>
+            </div>
         </div>
     )
 }

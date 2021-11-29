@@ -1,16 +1,16 @@
 import './Movie.css';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { movies_data } from '../data/moviesDataJSON';
-import HomeButton from '../components/HomeButton';
-import SearchBar from '../components/SearchBar';
+import TopBar from '../components/TopBar';
 import MovieInfo from '../components/MovieInfo';
 import MovieList from '../components/MovieList';
 
 export default function Movie() {
     const [validId, setValidId] = useState(true);
     const params = useParams();
+    const navigate = useNavigate();
 
     function getMovie(movieId) {
         return movies_data.find((movie) => {
@@ -26,14 +26,11 @@ export default function Movie() {
     }, [movie_info]);
 
     if (!validId && movie_info === undefined)
-        return <Navigate to="notfound"/>;
+        navigate("notfound");
 
     return (
         <div className="movie">
-            <div className="top-bar">
-                <HomeButton/>
-                <SearchBar/>
-            </div>
+            <TopBar/>
             {movie_info !== undefined && <MovieInfo id={movie_info.id}/>}
             {movie_info !== undefined && <MovieList listName="Related" movieIdList={movie_info.relatedMovies}/>}
         </div>
