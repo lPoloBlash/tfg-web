@@ -1,6 +1,7 @@
 import movies_data_csv from '../data/data.csv';
 
 var archivoTxt = new XMLHttpRequest();
+
 archivoTxt.open("GET", movies_data_csv, false);
 archivoTxt.send();
 

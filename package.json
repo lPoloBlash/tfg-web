@@ -12,7 +12,6 @@
     "@testing-library/user-event": "^12.8.3",
     "csv-parser": "^3.0.0",
     "csvtojson": "^2.0.10",
-    "fs": "^0.0.1-security",
     "install": "^0.13.0",
     "jquery-csv": "^1.0.21",
     "json2csv": "^5.0.6",
