@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import { movies_data, numMovies } from './data/moviesDataJSON';
+import { movies_data } from './data/moviesDataJSON';
 import TopBar from './components/TopBar';
 import MovieList from './components/MovieList';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
@@ -14,7 +14,7 @@ export default function App() {
     const movXPag = 50;
     const params = useParams();
     const navigate = useNavigate();
-    
+
     function getMaxPag(n) {
         if (n % movXPag === 0)
             return Math.trunc(n / movXPag);
@@ -26,7 +26,7 @@ export default function App() {
         }
     }
 
-    const maxPag = getMaxPag(numMovies);
+    const maxPag = getMaxPag(movies_data.length);
     
     useEffect(() => {
         if ((params.p !== undefined && !Number.isInteger(parseInt(params.p))) || (parseInt(params.p) <= 0 || parseInt(params.p) > maxPag))
@@ -37,7 +37,7 @@ export default function App() {
         else
             setDisablePrev(false);
 
-        if (parseInt(params.p) === maxPag)
+        if ((params.p === undefined && maxPag === 1) || parseInt(params.p) === maxPag)
             setDisableNext(true);
         else
             setDisableNext(false);
