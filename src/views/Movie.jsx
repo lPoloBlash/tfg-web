@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { movies_data } from '../data/moviesDataJSON';
-import TopBar from '../components/TopBar';
 import MovieInfo from '../components/MovieInfo';
 import MovieList from '../components/MovieList';
 
@@ -30,7 +29,6 @@ export default function Movie() {
 
     return (
         <div className="movie">
-            <TopBar/>
             {movie_info !== undefined && <MovieInfo id={movie_info.id}/>}
             {movie_info !== undefined && <MovieList listName="Related" movieIdList={movie_info.relatedMovies}/>}
         </div>

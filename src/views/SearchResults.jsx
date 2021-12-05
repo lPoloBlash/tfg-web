@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { movies_data } from '../data/moviesDataJSON';
-import TopBar from '../components/TopBar';
 import MovieList from '../components/MovieList';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
@@ -83,7 +82,6 @@ export default function SearchResults() {
 
     return (
         <div className="app">
-            <TopBar/>
             {filteredMovies.length > 0 ?
             (
                 <div>
