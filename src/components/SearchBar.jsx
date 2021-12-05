@@ -6,6 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 export default function SearchBar() {
     const [value, setValue] = useState("");
     const navigate = useNavigate();
+    
     const onSubmit = (e) => {
         navigate(`/search/${value}`);
         e.preventDefault();
@@ -21,7 +22,6 @@ export default function SearchBar() {
         >
             <input
                 className="search-bar-input"
-                style={{fontSize: "20px"}}
                 value={value}
                 onInput={(e) => setValue(e.target.value)}
                 type="text"
@@ -30,7 +30,6 @@ export default function SearchBar() {
             />
             <button
                 className="search-bar-button"
-                style={{fontSize: "20px"}}
                 type="submit"
             >
                 <FaSearch className="search-bar-icon"/>

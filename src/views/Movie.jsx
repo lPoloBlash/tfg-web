@@ -1,13 +1,13 @@
 import './Movie.css';
-import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { movies_data } from '../data/moviesDataJSON';
+import TopBar from '../components/TopBar';
 import MovieInfo from '../components/MovieInfo';
 import MovieList from '../components/MovieList';
 
 export default function Movie() {
-    const [validId, setValidId] = useState(true);
     const params = useParams();
     const navigate = useNavigate();
 
@@ -21,14 +21,12 @@ export default function Movie() {
     
     useEffect(() => {
         if (movie_info === undefined)
-            setValidId(false);
-    }, [movie_info]);
-
-    if (!validId && movie_info === undefined)
-        navigate("notfound");
+            navigate("notfound");
+    }, [movie_info, navigate]);
 
     return (
         <div className="movie">
+            <TopBar/>
             {movie_info !== undefined && <MovieInfo id={movie_info.id}/>}
             {movie_info !== undefined && <MovieList listName="Related" movieIdList={movie_info.relatedMovies}/>}
         </div>
