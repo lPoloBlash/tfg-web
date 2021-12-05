@@ -10,15 +10,13 @@ export default function HomeButton() {
     }
     
     return (
-        <div className="home-button">
-            <button 
-                className="home-button-button"
-                style={{fontSize: "20px"}}
-                type="button"
-                onClick={() => handleClick()}
-            >
-                <RiHomeLine className="home-button-icon"/>
-            </button>
-        </div>
+        <button 
+            className="home-button"
+            style={{fontSize: "20px"}}
+            type="button"
+            onClick={() => handleClick()}
+        >
+            <RiHomeLine className="home-button-icon"/>
+        </button>
     )
 }

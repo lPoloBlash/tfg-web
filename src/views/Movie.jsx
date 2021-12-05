@@ -1,40 +1,34 @@
 import './Movie.css';
-import { useParams } from "react-router-dom";
-import movies from '../data/moviesdata';
-import HomeButton from '../components/HomeButton';
-import SearchBar from '../components/SearchBar';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { movies_data } from '../data/moviesDataJSON';
+import TopBar from '../components/TopBar';
 import MovieInfo from '../components/MovieInfo';
 import MovieList from '../components/MovieList';
 
 export default function Movie() {
+    const params = useParams();
+    const navigate = useNavigate();
+
     function getMovie(movieId) {
-        return movies.find((movie) => {
+        return movies_data.find((movie) => {
             return movie.id === movieId;
         });
     }
 
-    function getRelatedMovies(relatedIdMovies) {
-        let relatedMovies = (relatedIdMovies.map((movieId) => {
-            return getMovie(movieId);
-        }));
-
-        return relatedMovies;
-    }
-
-    let params = useParams();
-    let movie_info = getMovie(params.id);
-    let related_movies = getRelatedMovies(movie_info.relatedMovies);
+    const movie_info = getMovie(params.id);
     
-    console.log(related_movies);
+    useEffect(() => {
+        if (movie_info === undefined)
+            navigate("notfound");
+    }, [movie_info, navigate]);
 
     return (
         <div className="movie">
-            <div className="top-bar">
-                <HomeButton/>
-                <SearchBar/>
-            </div>
-            <MovieInfo info={movie_info}/>
-            <MovieList listName="Related" movieList={related_movies}/>
+            <TopBar/>
+            {movie_info !== undefined && <MovieInfo id={movie_info.id}/>}
+            {movie_info !== undefined && <MovieList listName="Related" movieIdList={movie_info.relatedMovies}/>}
         </div>
     )
 }
