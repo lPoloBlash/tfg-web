@@ -1,7 +1,5 @@
 .movie-list {
     padding-top: 3%;
-    justify-content: center;
-    align-items: center;
 }
 
 .movie-list-header {
@@ -11,9 +9,9 @@
 .movie-list-content {
     padding-top: 3%;
     display: grid;
-    grid-gap: 40px 10px;
-    grid-template-columns: repeat(5, 1fr);
-    margin: 0 auto;
+    grid-gap: 20px 10px;
+    grid-template-columns: auto auto auto auto auto;
+    margin: auto;
     max-width: 1500px;
     max-height: fit-content;
 }

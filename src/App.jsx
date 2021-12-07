@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import TopBar from './components/TopBar';
 import Homepage from './views/Homepage';
 import SearchResults from './views/SearchResults';
 import Movie from './views/Movie';
@@ -10,6 +11,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <ScrollToTop/>
+            <TopBar/>
             <Routes>
                 <Route path="/" element={<Homepage/>}/>
                 <Route path="/page/:p" element={<Homepage/>}/>

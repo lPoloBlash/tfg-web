@@ -1,24 +1,18 @@
+.error-text {
+    text-align: center;
+}
+
 .error-text-title {
     padding-top: 7%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1000%;
 }
 
 .error-text-subtitle {
     padding-top: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 400%;
 }
 
 .error-text-body {
     padding-top: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     white-space: pre-line;
-    text-align: center;
 }
