@@ -45,19 +45,19 @@ export default function MovieInfo(props) {
                 <div className="movie-info-header"><h1>{movie.original_title}</h1></div>
                 <div className="movie-info-content">
                     <div className="movie-info-releaseDate">
-                        <h2>Release Date</h2>
-                        <div>
+                        <div className="movie-info-releaseDate-header"><h2>Release Date</h2></div>
+                        <div className="movie-info-releaseDate-content">
                             {movie.release_date !== "" ? (movie.release_date)
                                                        : (<p>N/A</p>)}
                         </div>
                     </div>
                     <div className="movie-info-genre">
                         <h2>Genre</h2>
-                        <div>{genres}</div>                        
+                        <div className="movie-info-genre-content">{genres}</div>                        
                     </div>
                     <div className="movie-info-runtime">
-                        <h2>Runtime</h2>
-                        <div>
+                        <div className="movie-info-runtime-header"><h2>Runtime</h2></div>
+                        <div className="movie-info-runtime-content">
                             {movie.runtime !== 0 ? (movie.runtime % 60 === 0 ? (Math.trunc(movie.runtime / 60) + "h")
                                                                              : (Math.trunc(movie.runtime / 60) === 0 ? (movie.runtime % 60 + "m")
                                                                                                                      : (Math.trunc(movie.runtime / 60) + "h " + movie.runtime % 60 + "m")))
@@ -65,8 +65,8 @@ export default function MovieInfo(props) {
                         </div>
                     </div>
                     <div className="movie-info-overview">
-                        <h2>Overview</h2>
-                        <div>
+                        <div className="movie-info-overview-header"><h2>Overview</h2></div>
+                        <div className="movie-info-overview-content">
                             {movie.overview !== "" ? (movie.overview)
                                                    : (<p>N/A</p>)}
                         </div>

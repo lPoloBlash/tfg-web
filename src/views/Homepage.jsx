@@ -1,7 +1,6 @@
 import './Homepage.css';
 import { useParams } from 'react-router-dom';
 import { movies_data } from '../data/moviesDataJSON';
-import TopBar from '../components/TopBar';
 import MovieList from '../components/MovieList';
 import PageButtons from '../components/PageButtons';
 
@@ -15,7 +14,6 @@ export default function Homepage() {
 
     return (
         <div className="homepage">
-            <TopBar/>
             {params.p === undefined ? (<MovieList listName="Explore" movieIdList={movie_id_list.slice(0, movXPage)}/>)
                                     : (<MovieList listName="Explore" movieIdList={movie_id_list.slice((params.p - 1) * movXPage, params.p * movXPage)}/>)}
             <PageButtons numItems={movies_data.length} itemsXPage={movXPage} urlHeader="/"/>

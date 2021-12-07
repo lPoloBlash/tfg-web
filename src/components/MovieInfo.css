@@ -6,9 +6,20 @@
 }
 
 .movie-info-img {
-    margin-top: 20px;
-    margin-right: 80px;
+    margin-top: 26.8px;
+    margin-right: 70px;
     height: 400px;
-    width: auto;
     border-radius: 15px;
+}
+
+.movie-info-header {
+    font-size: 20px;
+}
+
+.movie-info-content {
+    padding-left: 2%;
+}
+
+.movie-info-releaseDate-content, .movie-info-genre-content, .movie-info-runtime-content, .movie-info-overview-content {
+    padding-left: 2%;
 }

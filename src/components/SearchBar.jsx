@@ -1,12 +1,18 @@
 import './SearchBar.css';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 
 export default function SearchBar() {
     const [value, setValue] = useState("");
+    const location = useLocation();
     const navigate = useNavigate();
     
+    useEffect(() => {
+        if (!location.pathname.includes("search"))
+            setValue("");
+    }, [location.pathname])
+
     const onSubmit = (e) => {
         navigate(`/search/${value}`);
         e.preventDefault();
